@@ -12,7 +12,7 @@ public class AtividadeDtoApplication implements WebMvcConfigurer{
 
 	public static void main(String[] args) {
 		SpringApplication.run(AtividadeDtoApplication.class, args);
-		System.out.println("ok");
+		
 		
 	}
 	@Override
@@ -20,8 +20,7 @@ public class AtividadeDtoApplication implements WebMvcConfigurer{
 		corsRegistry
 		.addMapping("/**")
 		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS","PATCH");
-		
-		System.out.println("nnnnn");
+	
 	}
 	
 

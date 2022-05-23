@@ -14,36 +14,33 @@ import model.Pessoa;
 
 public class PessoaDTO {
 	private  String nome;
-	@Column(name = "comment_cpf")
+	private  String password;
 	private Long cpf;
 	private String email;
-	private  String password;
-
-
 	private String endereco;
 	private String tipo;
 
 	
-	public PessoaDTO(Pessoa pessoa) {
+	public PessoaDTO(String nome,String password,Long cpf,String email,String endereco,String tipo) {
 		super();
-		this.nome=pessoa.getNome();
-		this.password= pessoa.getPassword();
-		this.cpf=pessoa.getCpf();
-		this.email =pessoa.getEmail();
-		this.endereco= pessoa.getEndereco();
-		this.tipo =pessoa.getTipo();
-		
+		this.nome=nome;
+		this.password= password;
+		this.cpf=cpf;
+		this.email =email;
+		this.endereco= endereco;
+		this.tipo =tipo;
 	}
 	public PessoaDTO() {
 		
 	}
 
-	@Bean
-	public static List<PessoaDTO> convert(List<Pessoa> pessoa) {
-		
-		
-		return pessoa.stream().map(PessoaDTO::new).collect(Collectors.toList());
-	}
+	/*
+	 * public static List<PessoaDTO> convert(List<Pessoa> pessoa) {
+	 * 
+	 * 
+	 * return pessoa; //.stream().map(PessoaDTO::new).collect(Collectors.toList());
+	 * }
+	 */
 
 	public Long getCpf() {
 		return cpf;

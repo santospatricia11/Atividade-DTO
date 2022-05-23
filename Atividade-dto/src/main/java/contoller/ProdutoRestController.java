@@ -25,7 +25,7 @@ import dto.ProdutoDTO;
 import model.Produto;
 
 @RestController
-@RequestMapping("api/pessoa")
+@RequestMapping("/api/produto")
 
 public class ProdutoRestController {
 	@Autowired

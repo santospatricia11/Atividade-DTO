@@ -26,11 +26,11 @@ public class ProdutoDTO {
 			
 		}
 
-	@Bean
-	public static List<ProdutoDTO> convert(List<Produto> produto) {
-
-		return produto.stream().map(ProdutoDTO::new).collect(Collectors.toList());
-	}
+		/*
+		 * @Bean public static List<ProdutoDTO> convert(List<Produto> produto) {
+		 * 
+		 * return produto.stream().map(ProdutoDTO::new).collect(Collectors.toList()); }
+		 */
 
 	public long getId() {
 		return id;
