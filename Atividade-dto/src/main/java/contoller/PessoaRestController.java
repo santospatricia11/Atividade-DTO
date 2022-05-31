@@ -33,15 +33,13 @@ public class PessoaRestController {
 	@Autowired
 	private ServicoPessoa servicoPessoa;
 
-	@PostMapping
+	@PostMapping(value="/save")
 	public ResponseEntity<Object > createPessoa(@RequestBody PessoaDTO pessoaDTO) {
 		try {
 			Pessoa entity = pessoaServicoImplConvert.dtoToPessoa(pessoaDTO);
 			entity = servicoPessoa.save(entity);
-			pessoaDTO = pessoaServicoImplConvert.pessoaToDTO(pessoaDTO);
-			// destinoToDTO(entity);
-
-			//return new ResponseEntity(pessoaDTO, HttpStatus.CREATED);
+			pessoaDTO = pessoaServicoImplConvert.pessoaToDTO(entity);
+			
 			return new ResponseEntity<Object>(pessoaDTO, HttpStatus.CREATED);
 
 		} catch (Exception e) {
@@ -49,8 +47,7 @@ public class PessoaRestController {
 		}
 	}
 
-	@DeleteMapping
-	// (value="/{cpf}")
+	@DeleteMapping(value="{cpf}")
 	public ResponseEntity deletePessoa(@PathVariable("cpf") long cpf) {
 		try {
 			servicoPessoa.deleteById(cpf);
@@ -60,8 +57,8 @@ public class PessoaRestController {
 		}
 	}
 
-	@GetMapping(value = "/{cpf}")
-	public ResponseEntity<PessoaDTO> getDetinoById(@PathVariable("id") long cpf) {
+	@GetMapping(value = "{cpf}")
+	public ResponseEntity<PessoaDTO> getDetinoById(@PathVariable("cpf") long cpf) {
 		Pessoa pessoa = servicoPessoa.findById(cpf);
 
 		if (pessoa != null) {
@@ -73,7 +70,7 @@ public class PessoaRestController {
 		return ResponseEntity.notFound().build();
 	}
 
-	@GetMapping(value = "/pessoa")
+	@GetMapping
 	public ResponseEntity<List<Pessoa>> getAllPessoa() {
 		try {
 			List<Pessoa> pessoas = new ArrayList<Pessoa>();
@@ -88,7 +85,7 @@ public class PessoaRestController {
 		}
 	}
 
-	@PutMapping(value = "/pessoas/{cpf}")
+	@PutMapping(value = "{cpf}")
 	public ResponseEntity<Pessoa> updatePacote(@PathVariable("cpf") long cpf, @RequestBody Pessoa pessoa) {
 		Optional<Pessoa> informacoesPessoas = Optional.ofNullable(servicoPessoa.findById(cpf));
 		if (informacoesPessoas.isPresent()) {

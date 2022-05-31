@@ -7,21 +7,22 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@EnableWebMvc
-public class AtividadeDtoApplication implements WebMvcConfigurer{
+//@EnableWebMvc
+public class AtividadeDtoApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
+		
 		SpringApplication.run(AtividadeDtoApplication.class, args);
 		
 		
 	}
-	@Override
-	public void addCorsMappings (CorsRegistry corsRegistry) {
-		corsRegistry
-		.addMapping("/**")
-		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS","PATCH");
-	
-	}
+	/*
+	 * @Override public void addCorsMappings (CorsRegistry corsRegistry) {
+	 * corsRegistry .addMapping("/**")
+	 * .allowedMethods("GET","POST","PUT","DELETE","OPTIONS","PATCH");
+	 * 
+	 * }
+	 */
 	
 
 }

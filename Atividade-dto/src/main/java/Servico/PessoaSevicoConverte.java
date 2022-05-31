@@ -10,6 +10,6 @@ import model.Pessoa;
 public interface PessoaSevicoConverte {
 	public List<PessoaDTO> pessoaToDTOList(List<PessoaDTO> entities);
 	public Pessoa dtoToPessoa(PessoaDTO dto);
-	public PessoaDTO pessoaToDTO(PessoaDTO entity);
+	public PessoaDTO pessoaToDTO(Pessoa entity);
 
 }

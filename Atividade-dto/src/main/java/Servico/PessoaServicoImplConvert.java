@@ -24,10 +24,10 @@ public class PessoaServicoImplConvert implements PessoaSevicoConverte {
 	public List<PessoaDTO> pessoaToDTOList(List<PessoaDTO> entities) {
 		List<PessoaDTO> dtos = new ArrayList<>();
 
-		for (PessoaDTO dto : entities) {
-			PessoaDTO entity = pessoaToDTO(dto);
-			dtos.add(entity);
-		}
+		/*
+		 * for (PessoaDTO dto : entities) { PessoaDTO entity = pessoaToDTO(dto);
+		 * dtos.add(entity); }
+		 */
 		return dtos;
 
 	}
@@ -43,7 +43,7 @@ public class PessoaServicoImplConvert implements PessoaSevicoConverte {
 	}
 
 	@Override
-	public PessoaDTO pessoaToDTO(PessoaDTO entity) {
+	public PessoaDTO pessoaToDTO(Pessoa entity) {
 		PessoaDTO dto = new PessoaDTO();
 		dto.setNome(entity.getNome());
 		dto.setCpf(entity.getCpf());
