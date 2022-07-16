@@ -8,16 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-public class Produto implements Serializable{
-	
+public class Produto implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nomeProduto;
 	private String tipo;
-	/// muitos para um so
+	/// muitos para um so vvvv
 
 	@ManyToOne
 	@JoinColumn(name = "produto_id")
