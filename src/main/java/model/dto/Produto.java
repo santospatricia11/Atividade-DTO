@@ -17,7 +17,8 @@ public class Produto implements Serializable{
 	private long id;
 	private String nomeProduto;
 	private String tipo;
-	/// muitos para um so
+	/// muitos para um so mas um testes
+	//para ver se funciona
 
 	@ManyToOne
 	@JoinColumn(name = "produto_id")
